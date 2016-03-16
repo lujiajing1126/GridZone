@@ -1,0 +1,9 @@
+@mixin grid-unit-base {
+	display: inline-block;/* default mode for inline elements */
+    zoom: 1; *display: inline; /* IE < 8: fake inline-block */
+    letter-spacing: normal;
+    word-spacing: normal;
+    vertical-align: top;
+    box-sizing: border-box;/* use border + padding + content-width to calc total width configurated */
+    font-size: 1rem;
+}

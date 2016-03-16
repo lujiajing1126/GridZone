@@ -1,0 +1,35 @@
+@import '../lib/normalize';
+@import 'defaults';
+@import 'function';
+@import 'mixin';
+@import 'reset';
+
+.gridzone-unit-bar {
+	height: $gridzone-unit-bar-height;
+    background: $gridzone-unit-bar-bgcolor;
+}
+
+.gridzone-show {
+	@extend .gridzone-unit-bar;
+	border: 1px solid #151A39;
+	border-radius: 5px;
+}
+
+.gridzone-container {
+	width: 100%;
+	display: block;
+	/* from YUI3 Grid & Purecss Grid */
+	letter-spacing: -0.31em; /* webkit */
+	/* TODO: not sure for IE, only tested on safari & chrome */
+    *letter-spacing: normal; /* IE < 8 reset */
+    *word-spacing: -0.43em; /* IE < 8 && gecko */
+}
+
+@each $base-unit in $base-units {
+	@for $i from 1 through $base-unit {
+		.gridzone-u-#{$i}-#{$base-unit} {
+			@include grid-unit-base;
+			width: grid-width($base: $base-unit,$index: $i);
+		}
+	} 
+}
